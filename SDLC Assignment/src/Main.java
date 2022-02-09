@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		//File Reader
 		try {
-			File txt = new File("1065-h.htm");
+			File txt = new File("1065.txt");
 			Scanner fileReader = new Scanner(txt);
 			while (fileReader.hasNextLine()) {
 				String data = fileReader.nextLine();
@@ -18,5 +18,8 @@ public class Main {
 		      System.out.println("File Not Found.");
 		      e.printStackTrace();
 		    }
+		//Text Tracker
+		
+		
 	}
 }
