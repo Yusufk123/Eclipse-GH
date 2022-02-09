@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		//File Reader
 		try {
 			File txt = new File("1065.txt");
 			Scanner fileReader = new Scanner(txt);
@@ -17,9 +16,6 @@ public class Main {
 		} catch (FileNotFoundException e) {
 		      System.out.println("File Not Found.");
 		      e.printStackTrace();
-		    }
-		//Text Tracker
-		
-		
+		    } 
 	}
 }
