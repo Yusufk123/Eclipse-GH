@@ -35,7 +35,7 @@ public class Main {
 			while ((line = br.readLine()) != null) {				
 				
 	            String string[] = line.toLowerCase().split("([-,.\\s]+)");
-	            
+	            //I don't think any of the replaceAlls work
 	            line.replaceAll("\\<.*?\\>", ""); 
 	            line.replaceAll("</div>", ""); 
 	            line.replaceAll("/>", "");
@@ -43,9 +43,6 @@ public class Main {
 	            line.replaceAll("gutenberg&#8482;", "");
 	            line.replaceAll("style='display:block;", "");
 	            line.replaceAll("\"\\\\<[^>]*>\",\"\"", "");
-	            line.replaceAll("", "");
-	            line.replaceAll("", "");
-	            line.replaceAll("", "");
 	            for(String s : string){    
 	                words.add(s);    
 	            }
