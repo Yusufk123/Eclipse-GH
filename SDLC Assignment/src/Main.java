@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.util.Map.Entry;
 
 public class Main {
 
@@ -40,13 +39,30 @@ public class Main {
 			wordCount.put(words.get(i), n);
 		}
 		//Sort
-		//Map<String, Integer> wCSorted = sortByValue(wordCount);
+		Map<String, Integer> wCSorted = sortByValue(wordCount);
 		
 		//Output
-		for (Entry<String, Integer> entry : wordCount.entrySet()) {
-		    System.out.println(entry.getKey() + ":" + entry.getValue().toString());
-		}
+		for (Map.Entry<String, Integer> op : wCSorted.entrySet()) {
+            System.out.println(op.getKey() + ": " + op.getValue());
+        }
 	}
-
-	
+	//Sort
+	private static Map<String, Integer> sortByValue(Map<String, Integer> wordCount) {
+		
+        List<Map.Entry<String, Integer> > list = new LinkedList<Map.Entry<String, Integer> >(wordCount.entrySet());
+        
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() {
+            public int compare(Map.Entry<String, Integer> i1, Map.Entry<String, Integer> i2){
+                return (i2.getValue()).compareTo(i1.getValue());
+            }
+        });
+         
+   
+        Map<String, Integer> temp = new LinkedHashMap<String, Integer>();
+        
+        for (Map.Entry<String, Integer> a : list) {
+            temp.put(a.getKey(), a.getValue());
+        }
+        return temp;
+	}
 }
