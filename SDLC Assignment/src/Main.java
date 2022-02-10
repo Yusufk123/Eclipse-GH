@@ -6,7 +6,6 @@ public class Main {
 	public static void main(String[] args) {
 		String line;  
         ArrayList<String> words = new ArrayList<String>();
-        //ArrayList<Integer> timesUsed = new ArrayList<Integer>();
         
         //File Reader
 		try {
