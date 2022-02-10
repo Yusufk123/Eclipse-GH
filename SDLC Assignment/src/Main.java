@@ -1,4 +1,5 @@
 import java.io.*;
+import java.net.*;
 import java.util.*;
 
 public class Main {
@@ -8,7 +9,7 @@ public class Main {
         ArrayList<String> words = new ArrayList<String>();
         
         //File Reader
-		try {
+		/*try {
 			FileReader txt = new FileReader("1065.txt");
 			BufferedReader br = new BufferedReader(txt);
 			
@@ -23,6 +24,24 @@ public class Main {
 			br.close();
 		} catch (IOException e) {
 		      System.out.println("File Not Found.");
+		      e.printStackTrace();
+		    }*/
+        
+        //Page Reader
+        try {
+			URL txt = new URL("https://www.gutenberg.org/files/1065/1065-h/1065-h.htm");
+			BufferedReader br = new BufferedReader(new InputStreamReader(txt.openStream()));
+			
+			while ((line = br.readLine()) != null) {				
+	            //System.out.print(line);
+	            String string[] = line.toLowerCase().split("([-,.\\s]+)");           
+	            for(String s : string){    
+	                words.add(s);    
+	            }
+			}
+			br.close();
+		} catch (IOException e) {
+		      System.out.println("Page Not Found.");
 		      e.printStackTrace();
 		    }
 		
