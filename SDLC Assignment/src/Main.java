@@ -33,8 +33,19 @@ public class Main {
 			BufferedReader br = new BufferedReader(new InputStreamReader(txt.openStream()));
 			
 			while ((line = br.readLine()) != null) {				
-	            //System.out.print(line);
-	            String string[] = line.toLowerCase().split("([-,.\\s]+)");           
+				
+	            String string[] = line.toLowerCase().split("([-,.\\s]+)");
+	            
+	            line.replaceAll("\\<.*?\\>", ""); 
+	            line.replaceAll("</div>", ""); 
+	            line.replaceAll("/>", "");
+	            line.replaceAll("<div", "");
+	            line.replaceAll("gutenberg&#8482;", "");
+	            line.replaceAll("style='display:block;", "");
+	            line.replaceAll("\"\\\\<[^>]*>\",\"\"", "");
+	            line.replaceAll("", "");
+	            line.replaceAll("", "");
+	            line.replaceAll("", "");
 	            for(String s : string){    
 	                words.add(s);    
 	            }
