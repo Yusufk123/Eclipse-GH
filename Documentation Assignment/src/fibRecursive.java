@@ -1,7 +1,10 @@
 
 public class fibRecursive {
-	public int fibR(int n) {
-		
-		return n;
+	public static int fibR(int n) {
+		if (n <= 1) {
+			return n;
+		} else {
+			return fibR(n - 1)+fibR(n - 2);
+		}
 	}
 }
