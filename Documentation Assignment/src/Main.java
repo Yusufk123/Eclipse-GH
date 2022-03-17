@@ -3,14 +3,17 @@ public class Main {
 
 	public static void main(String[] args) {
 		int n = 21;
+		long startTime = 0, endTime = 0;
 		
-		System.out.println("Start Time for Recursive: " + System.nanoTime());
+		startTime = System.nanoTime();
 		System.out.println(fibRecursive.fibR(n));
-		System.out.println("End Time for Recursive: " + System.nanoTime());
+		endTime = System.nanoTime();
+		System.out.println("Time for fibRecursive:" + (endTime - startTime));
 		
-		System.out.println("Start Time for Iterative: " + System.nanoTime());
+		startTime = System.nanoTime();
 		System.out.println(fibIterative.fibI(n));
-		System.out.println("End Time for Iterative: " + System.nanoTime());
+		endTime = System.nanoTime();
+		System.out.println("Time for fibIterative:" + (endTime - startTime));
 	}
 	
 }
