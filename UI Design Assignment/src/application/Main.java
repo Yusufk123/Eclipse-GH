@@ -43,7 +43,6 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 			exitB.setOnAction(this);
 
 			StackPane layout = new StackPane();
-			// layout.getChildren().add(listView);
 
 			layout.getChildren().add(startB);
 
