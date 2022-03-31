@@ -132,7 +132,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 	}
 
 	// Sort
-	private static Map<String, Integer> sortByValue(Map<String, Integer> wordCount) {
+	Map<String, Integer> sortByValue(Map<String, Integer> wordCount) {
 
 		List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(wordCount.entrySet());
 
