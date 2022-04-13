@@ -11,14 +11,20 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+/** Main class for Word Occurrences Application. */
 public class Main {
-
+	/** ArrayList of words for Word Occurrences Application. */
 	public static ArrayList<String> words = new ArrayList<String>();
+	/** Map of integers for Word Occurrences Application. */
 	public static Map<String, Integer> wordCount = new HashMap<String, Integer>();
 
+	/**
+	 * Main for Word Occurrences Application.
+	 * 
+	 * @param args main
+	 */
 	public static void main(String[] args) {
 		String line;
-		// ArrayList<String> words = new ArrayList<String>();
 
 		// Page Reader
 		try {
@@ -47,7 +53,6 @@ public class Main {
 		}
 
 		// Analyzer
-		// Map<String, Integer> wordCount = new HashMap<String, Integer>();
 
 		for (int i = 0; i < words.size(); i++) {
 			int n = 1;
@@ -66,7 +71,12 @@ public class Main {
 		}
 	}
 
-	// Sort
+	/**
+	 * Sorts the words buy number of times found.
+	 * 
+	 * @param wordCount The Number of times a word was found
+	 * @return temp - Returns Sorted list
+	 */
 	public static Map<String, Integer> sortByValue(Map<String, Integer> wordCount) {
 
 		List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(wordCount.entrySet());
