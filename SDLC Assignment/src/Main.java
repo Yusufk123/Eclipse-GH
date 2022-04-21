@@ -2,6 +2,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -53,7 +58,6 @@ public class Main {
 		}
 
 		// Analyzer
-
 		for (int i = 0; i < words.size(); i++) {
 			int n = 1;
 			if (wordCount.get(words.get(i)) != null) {
@@ -62,13 +66,47 @@ public class Main {
 			wordCount.remove(words.get(i));
 			wordCount.put(words.get(i), n);
 		}
+
 		// Sort
 		Map<String, Integer> wCSorted = sortByValue(wordCount);
 
 		// Output
-		for (Map.Entry<String, Integer> op : wCSorted.entrySet()) {
-			System.out.println(op.getKey() + ": " + op.getValue());
+		// for (Map.Entry<String, Integer> op : wCSorted.entrySet()) {
+		// System.out.println(op.getKey() + ": " + op.getValue());
+		// }
+
+		// MySQL Integration
+		try {
+			Class.forName("java.sql.Driver");
+		} catch (ClassNotFoundException e1) {
+			System.out.println("MySQL Driver Error");
+			e1.printStackTrace();
 		}
+
+		String url = "jdbc:mysql://localhost:3306/"; // database specific url.
+		String user = "root";
+		String password = "salsal";
+
+		try {
+			Connection connection = DriverManager.getConnection(url, user, password);
+			Statement statement = connection.createStatement();
+			String sql = "";
+
+			// int rowsAffected = statement.executeUpdate(sql);
+
+			sql = "select * from `word occurrences`.word";
+			ResultSet result = statement.executeQuery(sql);
+			while (result.next()) {
+				String word = result.getString("word");
+				int freq = result.getInt("Frequency");
+				System.out.println(word + ": " + freq);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("MySQL Connection Error");
+			e.printStackTrace();
+		}
+
 	}
 
 	/**
