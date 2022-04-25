@@ -44,20 +44,14 @@ public class Server extends Application {
 					double num = inputFromClient.readDouble();
 
 					// Check if prime
-					String prime;
+					boolean result = isPrime(num);
 
-					if (isPrime(num) == true) {
-						prime = "prime";
-					} else {
-						prime = "not prime";
-					}
-
-					// Send if prime back to the client
-					outputToClient.writeChars(prime);
+					// Send result of if prime back to the client
+					outputToClient.writeBoolean(result);
 
 					Platform.runLater(() -> {
 						ta.appendText("Number received from client: " + num + '\n');
-						ta.appendText(num + " is " + prime + '\n');
+						ta.appendText(num + " is " + result + '\n');
 					});
 				}
 			} catch (IOException ex) {

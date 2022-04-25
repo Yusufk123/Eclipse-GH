@@ -55,7 +55,14 @@ public class Client extends Application {
 				toServer.flush();
 
 				// Get result from the server
-				String prime = fromServer.toString();
+				String prime;
+				Boolean result = fromServer.readBoolean();
+
+				if (result == true) {
+					prime = "prime";
+				} else {
+					prime = "not prime";
+				}
 
 				// Display to the text area
 				ta.appendText("Number is " + num + "\n");
