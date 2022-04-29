@@ -22,6 +22,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+/** Main class for Word Occurrences Application. */
 public class Main extends Application implements EventHandler<ActionEvent> {
 
 	Stage window;
@@ -32,14 +33,14 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 	public void start(Stage primaryStage) {
 		try {
 			window = primaryStage;
-			window.setTitle("UI Design Assignment");
+			window.setTitle("Word Occurrences");
 
 			window.setOnCloseRequest(e -> closeProgram());
 
-			startB = new Button("Run SDLC Program");
+			startB = new Button("Run Word Occurrences Program");
 			startB.setOnAction(this);
 
-			exitB = new Button("Exit Program");
+			exitB = new Button("Exit Word Occurrences Program");
 			exitB.setOnAction(this);
 
 			StackPane layout = new StackPane();
@@ -54,6 +55,11 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 		}
 	}
 
+	/**
+	 * Main for Word Occurrences Application.
+	 * 
+	 * @param args main
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -75,6 +81,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
 	private void SDLC() {
 		String line;
+		/** ArrayList of words for Word Occurrences Application. */
 		ArrayList<String> words = new ArrayList<String>();
 		{
 
@@ -104,7 +111,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 				e.printStackTrace();
 			}
 
-			// Analyzer
+			/** Map of integers for Word Occurrences Application. */
 			Map<String, Integer> wordCount = new HashMap<String, Integer>();
 
 			for (int i = 0; i < words.size(); i++) {
@@ -115,7 +122,12 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 				wordCount.remove(words.get(i));
 				wordCount.put(words.get(i), n);
 			}
-			// Sort
+			/**
+			 * Sorts the words buy number of times found.
+			 * 
+			 * @param wordCount The Number of times a word was found
+			 * @return temp - Returns Sorted list
+			 */
 			Map<String, Integer> wCSorted = sortByValue(wordCount);
 
 			// Output
